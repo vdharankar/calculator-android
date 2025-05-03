@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+
+    <!-- Background circles -->
+    <path
+        android:fillColor="#F5F5F5"
+        android:pathData="M0,0h200v200h-200z" />
+
+    <!-- Decorative circles -->
+    <path
+        android:fillColor="#E3F2FD"
+        android:fillAlpha="0.5"
+        android:pathData="M50,50m-40,0a40,40 0,1 1,80 0a40,40 0,1 1,-80 0" />
+
+    <path
+        android:fillColor="#BBDEFB"
+        android:fillAlpha="0.3"
+        android:pathData="M150,150m-30,0a30,30 0,1 1,60 0a30,30 0,1 1,-60 0" />
+
+    <!-- Decorative lines -->
+    <path
+        android:strokeColor="#90CAF9"
+        android:strokeWidth="1"
+        android:strokeAlpha="0.2"
+        android:pathData="M0,100 L200,100" />
+
+    <path
+        android:strokeColor="#90CAF9"
+        android:strokeWidth="1"
+        android:strokeAlpha="0.2"
+        android:pathData="M100,0 L100,200" />
+
+    <!-- Diagonal lines -->
+    <path
+        android:strokeColor="#90CAF9"
+        android:strokeWidth="1"
+        android:strokeAlpha="0.1"
+        android:pathData="M0,0 L200,200" />
+
+    <path
+        android:strokeColor="#90CAF9"
+        android:strokeWidth="1"
+        android:strokeAlpha="0.1"
+        android:pathData="M200,0 L0,200" />
+
+</vector> 
