@@ -1,3 +1,13 @@
+/**
+ * MainActivity - A modern calculator application with advanced mathematical operations
+ * 
+ * This activity implements a calculator with the following features:
+ * - Basic arithmetic operations (+, -, *, /)
+ * - Square root functionality
+ * - Parentheses support for complex expressions
+ * - Error handling for invalid expressions
+ * - Modern Material Design UI
+ */
 package com.example.testapp
 
 import android.os.Bundle
@@ -12,20 +22,27 @@ import kotlin.math.pow
 import kotlin.math.sqrt
 
 class MainActivity : AppCompatActivity() {
+    // UI Components
     private lateinit var display: TextView
     private var currentInput: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Enable edge-to-edge display for modern Android UI
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+        
+        // Handle system window insets for proper edge-to-edge display
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
+        // Initialize calculator display
         display = findViewById(R.id.display)
+        
+        // Define calculator button IDs and their corresponding values
         val buttonIds = listOf(
             R.id.btn0, R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9,
             R.id.btnPlus, R.id.btnMinus, R.id.btnMultiply, R.id.btnDivide, R.id.btnDot,
@@ -39,6 +56,7 @@ class MainActivity : AppCompatActivity() {
             R.id.btnLeftParen to "(", R.id.btnRightParen to ")", R.id.btnSqrt to "√"
         )
 
+        // Set up click listeners for all calculator buttons
         for (id in buttonIds) {
             findViewById<MaterialButton>(id).setOnClickListener {
                 val value = buttonValues[id] ?: ""
@@ -51,11 +69,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        // Clear button functionality
         findViewById<MaterialButton>(R.id.btnClear).setOnClickListener {
             currentInput = ""
             display.text = "0"
         }
 
+        // Equals button functionality with error handling
         findViewById<MaterialButton>(R.id.btnEquals).setOnClickListener {
             try {
                 val result = evaluateExpression(currentInput)
@@ -68,16 +88,29 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Simple expression evaluator supporting +, -, *, /, sqrt, parentheses
+    /**
+     * Evaluates a mathematical expression string and returns the result
+     * Supports basic arithmetic operations, square root, and parentheses
+     * 
+     * @param expr The expression string to evaluate
+     * @return The result as a string
+     */
     private fun evaluateExpression(expr: String): String {
         val replaced = expr
-            .replace("sqrt(", "√(") // for easier parsing
+            .replace("sqrt(", "√(") // Convert sqrt to √ for easier parsing
         val tokens = tokenize(replaced)
         val rpn = toRPN(tokens)
         val result = evalRPN(rpn)
         return if (result % 1.0 == 0.0) result.toInt().toString() else result.toString()
     }
 
+    /**
+     * Tokenizes the input expression into a list of tokens
+     * Handles numbers, operators, and special functions
+     * 
+     * @param expr The expression string to tokenize
+     * @return List of tokens
+     */
     private fun tokenize(expr: String): List<String> {
         val tokens = mutableListOf<String>()
         var i = 0
@@ -101,6 +134,13 @@ class MainActivity : AppCompatActivity() {
         return tokens
     }
 
+    /**
+     * Converts infix notation to Reverse Polish Notation (RPN)
+     * Uses the Shunting Yard algorithm
+     * 
+     * @param tokens List of tokens in infix notation
+     * @return List of tokens in RPN
+     */
     private fun toRPN(tokens: List<String>): List<String> {
         val output = mutableListOf<String>()
         val ops = Stack<String>()
@@ -134,6 +174,12 @@ class MainActivity : AppCompatActivity() {
         return output
     }
 
+    /**
+     * Evaluates an expression in Reverse Polish Notation
+     * 
+     * @param rpn List of tokens in RPN
+     * @return The result as a Double
+     */
     private fun evalRPN(rpn: List<String>): Double {
         val stack = Stack<Double>()
         for (token in rpn) {

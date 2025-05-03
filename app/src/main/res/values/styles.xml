@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Custom styles for the application -->
 <resources>
+    <!-- Custom TextInputLayout style with outlined box design -->
     <style name="Widget.TestApp.TextInputLayout.OutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <!-- Background color for the input field -->
         <item name="boxBackgroundColor">@color/white</item>
+        <!-- Border color for the input field -->
         <item name="boxStrokeColor">@color/divider</item>
+        <!-- Border width for the input field -->
         <item name="boxStrokeWidth">1dp</item>
+        <!-- Border width when the input field is focused -->
         <item name="boxStrokeWidthFocused">2dp</item>
+        <!-- Corner radius for all corners -->
         <item name="boxCornerRadiusTopStart">8dp</item>
         <item name="boxCornerRadiusTopEnd">8dp</item>
         <item name="boxCornerRadiusBottomStart">8dp</item>
         <item name="boxCornerRadiusBottomEnd">8dp</item>
+        <!-- Text colors for hint and input -->
         <item name="hintTextColor">@color/text_secondary</item>
         <item name="android:textColorHint">@color/text_secondary</item>
         <item name="android:textColor">@color/text_primary</item>

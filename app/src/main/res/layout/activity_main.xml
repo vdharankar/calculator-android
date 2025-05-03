@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Main calculator layout with a dark theme -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,7 +9,7 @@
     android:background="@android:color/black"
     tools:context=".MainActivity">
 
-    <!-- Display Area -->
+    <!-- Display Area - Shows current input and calculation results -->
     <TextView
         android:id="@+id/display"
         android:layout_width="0dp"
@@ -24,7 +25,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Calculator Buttons Grid (Traditional Layout) -->
+    <!-- Calculator Buttons Grid - Organized in a 5x4 grid layout -->
     <GridLayout
         android:id="@+id/buttonGrid"
         android:layout_width="0dp"
@@ -39,7 +40,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Row 1 -->
+        <!-- Row 1: Clear, Parentheses, and Division -->
         <com.google.android.material.button.MaterialButton 
             android:id="@+id/btnClear" 
             android:text="C" 
@@ -92,7 +93,7 @@
             app:backgroundTint="#4A4A4A"
             style="@style/Widget.MaterialComponents.Button" />
 
-        <!-- Row 2 -->
+        <!-- Row 2: Numbers 7-9 and Multiplication -->
         <com.google.android.material.button.MaterialButton 
             android:id="@+id/btn7" 
             android:text="7" 
@@ -145,7 +146,7 @@
             app:backgroundTint="#4A4A4A"
             style="@style/Widget.MaterialComponents.Button" />
 
-        <!-- Row 3 -->
+        <!-- Row 3: Numbers 4-6 and Subtraction -->
         <com.google.android.material.button.MaterialButton 
             android:id="@+id/btn4" 
             android:text="4" 
@@ -198,7 +199,7 @@
             app:backgroundTint="#4A4A4A"
             style="@style/Widget.MaterialComponents.Button" />
 
-        <!-- Row 4 -->
+        <!-- Row 4: Numbers 1-3 and Addition -->
         <com.google.android.material.button.MaterialButton 
             android:id="@+id/btn1" 
             android:text="1" 
@@ -251,7 +252,7 @@
             app:backgroundTint="#4A4A4A"
             style="@style/Widget.MaterialComponents.Button" />
 
-        <!-- Row 5 -->
+        <!-- Row 5: Zero, Decimal Point, Square Root, and Equals -->
         <com.google.android.material.button.MaterialButton 
             android:id="@+id/btn0" 
             android:text="0" 
